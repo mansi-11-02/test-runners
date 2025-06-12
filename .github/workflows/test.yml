@@ -14,9 +14,8 @@ jobs:
 
       - name: Make Script Executable
         run: |
-          pwd
-          ls -l
-          chmod +x check_runner.sh
+          cd 
+          chmod +x .github/workflows/check_runner.sh
 
       - name: Run Bash Script
-        run: ./check_runner.sh
+        run: .github/workflows/check_runner.sh

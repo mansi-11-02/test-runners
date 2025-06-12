@@ -14,7 +14,7 @@ jobs:
 
       - name: Make Script Executable
         run: |
-          cd 
+          
           chmod +x .github/workflows/check_runner.sh
 
       - name: Run Bash Script

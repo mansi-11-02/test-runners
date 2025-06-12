@@ -1,23 +1,19 @@
 name: Self-Hosted Runner Check
 
 on:
-  workflow_dispatch:  # Allows manual triggering from GitHub UI
+  workflow_dispatch:
 
 jobs:
   check-runner:
     name: Check Self-Hosted Runner
-    runs-on: ubuntu-latest  # This ensures the job runs on your self-hosted runner
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Print Start Message
-        run: echo "Starting self-hosted runner check..."
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Print System Info
-        run: |
-          echo "Hostname: $(hostname)"
-          echo "Date: $(date)"
-          echo "Current Directory: $(pwd)"
-          echo "User: $(whoami)"
+      - name: Make Script Executable
+        run: chmod +x check_runner.sh
 
-      - name: Print Success Message
-        run: echo "✅ Self-hosted runner triggered successfully!"
+      - name: Run Bash Script
+        run: ./check_runner.sh

@@ -13,7 +13,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Make Script Executable
-        run: chmod +x check_runner.sh
+        run: |
+          ls
+          chmod +x check_runner.sh
 
       - name: Run Bash Script
         run: ./check_runner.sh
